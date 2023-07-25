@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../public/index.css" type="text/css">
+    <title>Contact List</title>
+  </head>
+  <body>
+    <div class="form-create">
+      <h1>contact lists</h1>
+      <form action="/" method="POST">
+        <input placeholder="first name" name="firstName" />
+        <input placeholder="first name" name="lastName" />
+        <input placeholder="first name" name="phoneNumber" />
+        <input placeholder="first name" name="address" />
+        <button type="submit">submit</button>
+      </form>
+    </div>
+    <div class="contact-list">
+      <table class="table-auto w-full">
+        <thead>
+          <tr class="bg-[#C3CAD6] text-[#5A5A5A] text-left h-[52px]">
+            <th scope="col" class="bg-inherit font-normal">ID</th>
+            <th scope="col" class="bg-inherit font-normal">first name</th>
+            <th scope="col" class="bg-inherit font-normal">last name</th>
+            <th scope="col" class="bg-inherit font-normal">phone number</th>
+            <th scope="col" class="bg-inherit font-normal">address</th>
+          </tr>
+        </thead>
+        <% for(var i=0; i < data.length; i++) { %>
+        <tbody>
+          <tr class="users-display">
+            <td><%= data[i].id %></td>
+            <td><%= data[i].firstName %></td>
+            <td><%= data[i].lastName %></td>
+            <td><%= data[i].phoneNumber%></td>
+            <td><%= data[i].address %></td>
+            <td><a href="/delete/<%= data[i].id%>">delete</a></td>
+            <td><a href="/edit/<%= data[i].id%>">edit</a></td>
+            <br />
+          </tr>
+        </tbody>
+        <% } %>
+      </table>
+    </div>
+  </body>
+</html>
